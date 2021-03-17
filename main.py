@@ -15,7 +15,28 @@ def inside(head):
     "Return True if head inside boundaries."
     return -200 < head.x < 190 and -200 < head.y < 190
 
+def changeFood(x, y):
+    food.x = x
+    food.y = y
+
+def moveFood():
+    num = randrange(0,4)
+    if num == 0:
+        if inside(food):
+            changeFood(food.x, food.y + 10)
+    elif num == 1:
+        if inside(food):
+            changeFood(food.x + 10, food.y)
+    elif num == 2:
+        if inside(food):
+            changeFood(food.x, food.y - 10)
+    else:
+        if inside(food):
+            changeFood(food.x - 10, food.y)
+    ontimer(moveFood, 1000)
+
 def move():
+    "Move food one segment"
     "Move snake forward one segment."
     head = snake[-1].copy()
     head.move(aim)
@@ -51,5 +72,6 @@ onkey(lambda: change(10, 0), 'Right')
 onkey(lambda: change(-10, 0), 'Left')
 onkey(lambda: change(0, 10), 'Up')
 onkey(lambda: change(0, -10), 'Down')
+moveFood()
 move()
 done()
