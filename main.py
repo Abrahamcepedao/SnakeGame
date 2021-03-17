@@ -20,10 +20,18 @@ def inside(head):
     "Return True if head inside boundaries."
     return -200 < head.x < 190 and -200 < head.y < 190
 
+# La función se llama changeFood
+# parametro de entrada: x (int), y (int)
+# parametro de salida: N/A (no regresa valores)
+# Descripcion: cambia la posición en x y y de "food"
 def changeFood(x, y):
     food.x = x
     food.y = y
 
+# La función se llama moveFood
+# parametro de entrada: N/A (no hay parametros de entradas)
+# parametro de salida: N/A (no regresa valores)
+# Descripcion: calcula la nueva posición de "food" aleatoriamente y manda llamar la funcion de changeFood para actualizar la posición 
 def moveFood():
     num = randrange(0,4)
     if num == 0:
@@ -41,7 +49,6 @@ def moveFood():
     ontimer(moveFood, 1000)
 
 def move():
-    "Move food one segment"
     "Move snake forward one segment."
     head = snake[-1].copy()
     head.move(aim)
