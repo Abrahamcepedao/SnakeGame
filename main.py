@@ -6,6 +6,8 @@ import random
 food = vector(0, 0)
 snake = [vector(10, 0)]
 aim = vector(0, -10)
+# Este codigo agregado permite que se seleccione un color al azar de la siguiente lista para darle un color a la serpiente
+# y elige al azar un color diferente para la comida
 colors=['black', 'blue', 'magenta', 'yellow', 'cyan']
 color=random.choice(colors)
 colors.remove(color)
@@ -69,9 +71,11 @@ def move():
 
     clear()
     
+    # especificaciones del cuerpo de la serpiente
     for body in snake:
         square(body.x, body.y, 9, color)
 
+    # especificaciones de la comida
     square(food.x, food.y, 9, color2)
     update()
     ontimer(move, 100)
@@ -80,6 +84,7 @@ setup(420, 420, 370, 0)
 hideturtle()
 tracer(False)
 listen()
+# la funcion 'onkey' tiene como parametros una funcion sin argumentos y una tecla, se mueve 19 pixeles segun las indicaciones
 onkey(lambda: change(10, 0), 'Right')
 onkey(lambda: change(-10, 0), 'Left')
 onkey(lambda: change(0, 10), 'Up')
