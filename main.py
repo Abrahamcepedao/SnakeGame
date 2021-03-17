@@ -12,12 +12,20 @@ colors=['black', 'blue', 'magenta', 'yellow', 'cyan']
 color=random.choice(colors)
 colors.remove(color)
 color2=random.choice(colors)
-    
+
+# La función se llama change
+# parametro de entrada: x (int), y (int)
+# parametro de salida: N/A (no regresa valores)
+# Descripcion: cambia la posición en x y y de "snake"
 def change(x, y):
     "Change snake direction."
     aim.x = x
     aim.y = y
 
+# La función se llama inside
+# parametro de entrada: head (la cabeza de la serpiente)
+# parametro de salida: TRUE/FALSE
+# Descripcion: revisa si la cabeza se encuentra dentro del juego
 def inside(head):
     "Return True if head inside boundaries."
     return -200 < head.x < 190 and -200 < head.y < 190
@@ -50,6 +58,10 @@ def moveFood():
             changeFood(food.x - 10, food.y)
     ontimer(moveFood, 1000)
 
+# La función se llama move
+# parametro de entrada: el vector aim
+# parametro de salida: si se sale del juego, cambia de color a rojo, o aumenta el tamaño de la serpiente si come
+# Descripcion: cambia la posición en x y y de "food"
 def move():
     "Move snake forward one segment."
     head = snake[-1].copy()
