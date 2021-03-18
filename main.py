@@ -1,3 +1,8 @@
+# Codigo de Juego de la Vibora
+# Proposito: Continuar con una aplicación que implica una inteligencia muy sencilla
+# conocida por la mayoría pero que requiere una actualización para manejar una funcionalidad adicional.
+# se agregan las funcionalidades de: cambio de color de serpiente y comida; movimiento de la comida
+# Autores: Monserrat Da Costa Gomez y Abraham Cepeda
 from turtle import *
 from random import randrange
 from freegames import square, vector
